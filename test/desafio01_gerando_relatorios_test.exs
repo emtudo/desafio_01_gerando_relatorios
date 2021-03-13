@@ -45,4 +45,16 @@ defmodule Desafio01GerandoRelatoriosTest do
       assert expect_response == response
     end
   end
+
+  describe "build_from_many/1" do
+    test "builds the reports" do
+      filenames = ["part_1.csv", "part_2.csv", "part_3.csv"]
+      {:ok, response} = Desafio01GerandoRelatorios.build_from_many(filenames)
+
+      filename = "gen_report.csv"
+      expect_response = Desafio01GerandoRelatorios.build(filename)
+
+      assert expect_response == response
+    end
+  end
 end
